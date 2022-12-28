@@ -1,0 +1,73 @@
+<div>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Vorlesung vorbereiten" [(ngModel)]="habit.name" required>
+    </mat-form-field>
+    <mat-form-field class="input" appearance="fill">
+        <mat-label>Beschreibung</mat-label>
+        <textarea matInput placeholder="Die Vorlesung..." [(ngModel)]="habit.description" required></textarea>
+    </mat-form-field>
+
+    <div class="goalsPerWeekContainer">
+        <p>Anzahl pro Woche</p>
+        <mat-slider min="1" max="10" step="1" value="5" thumbLabel [(ngModel)]="habit.goals_per_week" required>
+        </mat-slider>
+    </div>
+
+    <div class="colorPickerContainer">
+        <p>Farbe</p>
+        <div class="colors">
+            <div class="colorPicker" [style.background-color]="'#F44336'" (click)="setColor('#F44336')">
+                <mat-icon *ngIf="habit.color == '#F44336'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#E91E63'" (click)="setColor('#E91E63')">
+                <mat-icon *ngIf="habit.color == '#E91E63'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#AB47BC'" (click)="setColor('#AB47BC')">
+                <mat-icon *ngIf="habit.color == '#AB47BC'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#7E57C2'" (click)="setColor('#7E57C2')">
+                <mat-icon *ngIf="habit.color == '#7E57C2'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#19448f'" (click)="setColor('#19448f')">
+                <mat-icon *ngIf="habit.color == '#19448f'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#2196F3'" (click)="setColor('#2196F3')">
+                <mat-icon *ngIf="habit.color == '#2196F3'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#00BCD4'" (click)="setColor('#00BCD4')">
+                <mat-icon *ngIf="habit.color == '#00BCD4'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#009688'" (click)="setColor('#009688')">
+                <mat-icon *ngIf="habit.color == '#009688'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#8BC34A'" (click)="setColor('#8BC34A')">
+                <mat-icon *ngIf="habit.color == '#8BC34A'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#CDDC39'" (click)="setColor('#CDDC39')">
+                <mat-icon *ngIf="habit.color == '#CDDC39'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#FFEB3B'" (click)="setColor('#FFEB3B')">
+                <mat-icon *ngIf="habit.color == '#FFEB3B'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#FF9800'" (click)="setColor('#FF9800')">
+                <mat-icon *ngIf="habit.color == '#FF9800'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#FF5722'" (click)="setColor('#FF5722')">
+                <mat-icon *ngIf="habit.color == '#FF5722'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#6D4C41'" (click)="setColor('#6D4C41')">
+                <mat-icon *ngIf="habit.color == '#6D4C41'">check</mat-icon>
+            </div>
+            <div class="colorPicker" [style.background-color]="'#90A4AE'" (click)="setColor('#90A4AE')">
+                <mat-icon *ngIf="habit.color == '#90A4AE'">check</mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Speichern</button>
+    <button mat-button (click)="onCancel()">Abbrechen</button>
+    <button mat-button color="warn" (click)="onDelete()" *ngIf="data">Löschen</button>
+</div>

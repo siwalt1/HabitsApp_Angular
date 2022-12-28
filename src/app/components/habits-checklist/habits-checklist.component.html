@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="navigationContainer">
+        <div class="navigation">
+            <button mat-stroked-button (click)="navigateToday()">Heute</button>
+            <mat-icon (click)="navigateBack()">arrow_back_ios</mat-icon>
+            <mat-icon (click)="navigateForward()">arrow_forward_ios</mat-icon>
+        </div>
+        <p>{{getDateString()}}</p>
+        <div class="editTextContainer">
+            <p *ngIf="!editHabits" (click)="toggleEditHabits()">Bearbeiten</p>
+            <p *ngIf="editHabits" (click)="toggleEditHabits()">Fertig</p>
+        </div>
+    </div>
+
+    <div *ngFor="let habit of (supabaseApi.habits$ | async)" class="habit" [class.slide-left]="animationLeft"
+        [class.slide-right]="animationRight" style.border="3px solid {{habit.color}}">
+        <mat-icon>assignment</mat-icon>
+        <span>
+            <p (click)="editHabit(habit)" [style.color]="habit.color">{{habit.name}}</p>
+        </span>
+
+        <mat-icon class="checkIconUnset" *ngIf="!isHabitChecked(habit.id) && !editHabits"
+            (click)="checkHabit(habit.id)">check
+        </mat-icon>
+        <mat-icon class="checkIconSet" *ngIf="isHabitChecked(habit.id) && !editHabits" (click)="uncheckHabit(habit.id)">
+            check
+        </mat-icon>
+        <mat-icon class="orderHabitIcon" *ngIf="editHabits && habit.order != (supabaseApi.habits$ | async)?.length"
+            (click)="moveHabitDown(habit)">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon class="orderHabitIcon" *ngIf="editHabits && habit.order != 1" (click)="moveHabitUp(habit)">
+            keyboard_arrow_up
+        </mat-icon>
+    </div>
+
+    <mat-icon (click)="createHabit()" class="addIcon">add_circle_outline</mat-icon>
+</div>

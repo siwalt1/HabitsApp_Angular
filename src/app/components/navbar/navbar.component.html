@@ -1,0 +1,15 @@
+<div class="navbar">
+    <h1><a href="">HabitsApp</a></h1>
+    <div class="userContainer">
+        <p class="username">{{supabaseApi.supabase.auth.session()?.user?.user_metadata?.first_name + ' ' +
+            supabaseApi.supabase.auth.session()?.user?.user_metadata?.last_name}}</p>
+        <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon class="userIcon">account_circle</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu" class="userMenu">
+            <button mat-menu-item>Settings</button>
+            <button mat-menu-item>Info</button>
+            <button mat-menu-item (click)="supabaseApi.logout()">Logout</button>
+        </mat-menu>
+    </div>
+</div>

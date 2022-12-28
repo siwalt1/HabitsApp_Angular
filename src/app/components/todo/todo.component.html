@@ -1,0 +1,15 @@
+<div style="text-align: center;">
+    <input class="inputField" [(ngModel)]="todo.name" type="text" placeholder="Was wollen sie als nächstes tun?"
+        (keyup.enter)="addTodo()">
+
+    <mat-list role="list">
+        <div *ngFor="let todoItem of (supabaseApi.todos$ | async)" class="listItem">
+            <div style="display: flex; justify-content: space-between;">
+                <p>{{todoItem.name}}</p>
+                <mat-icon aria-hidden="false" aria-label="Example home icon" class="icon"
+                    (click)="deleteTodo(todoItem.id)">
+                    check</mat-icon>
+            </div>
+        </div>
+    </mat-list>
+</div>

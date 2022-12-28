@@ -1,0 +1,30 @@
+.input {
+    width: 100%;
+}
+
+.goalsPerWeekContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.colorPickerContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .colors {
+        display: flex;
+        align-items: center;
+        .colorPicker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50px;
+            margin-left: 2px;
+            cursor: pointer;
+            .mat-icon{
+                color: white;
+                font-size: 20px;
+            }
+        }
+    }
+}

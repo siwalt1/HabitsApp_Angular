@@ -1,0 +1,30 @@
+.listItem {
+    padding: 5px 10px;
+    color: blue;
+    font-style: italic;
+    font-weight: 700;
+    background-color: lightgrey;
+    border-radius: 20px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+.inputField {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    width: 80%;
+    max-width: 1000px;
+}
+
+.inputField:focus-visible{
+    outline: none;
+}
+
+.icon{
+    margin-left: 10px;
+    color: limegreen;
+    cursor: pointer;
+    margin-top: 12px;
+}

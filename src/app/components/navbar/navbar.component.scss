@@ -1,0 +1,39 @@
+.navbar {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(25, 68, 143);
+    margin-bottom: 20px;
+
+    h1 {
+        font-size: 1.5rem;
+        margin-left: 20px;
+        a {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+    .userContainer {
+        display: flex;
+
+        .username {
+            color: white;
+        }
+
+        .userIcon {
+            font-size: xx-large;
+            width: auto;
+            height: auto;
+            color: white;
+            cursor: pointer;
+        }
+
+        .userMenu {
+            margin-right: 50px;
+            height: 500px;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+<div class="loginBg">
+    <div class="loginBox">
+        <h2>{{isRegister ? 'Registrieren' : 'Login'}}</h2>
+        <mat-form-field class="input" appearance="fill" *ngIf="isRegister">
+            <mat-label>Vorname</mat-label>
+            <input type="text" matInput [(ngModel)]="firstname" required>
+        </mat-form-field>
+        <mat-form-field class="input" appearance="fill" *ngIf="isRegister">
+            <mat-label>Nachname</mat-label>
+            <input type="text" matInput [(ngModel)]="lastname" required>
+        </mat-form-field>
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput [(ngModel)]="email" required>
+        </mat-form-field>
+        <mat-form-field class="input" appearance="fill">
+            <mat-label>Passwort</mat-label>
+            <input type="password" matInput [(ngModel)]="password" required>
+        </mat-form-field>
+        <button *ngIf="!isRegister" mat-raised-button color="primary" (click)="login()">Login</button>
+        <button *ngIf="isRegister" mat-raised-button color="primary" (click)="register()">Registrieren</button>
+        <p *ngIf="!isRegister">Noch nicht registriert? <a routerLink="/register">Account erstellen</a></p>
+        <p *ngIf="isRegister">Bereits registriert? <a routerLink="/login">Login</a></p>
+    </div>
+</div>
